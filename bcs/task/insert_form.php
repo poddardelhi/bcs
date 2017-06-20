@@ -3,8 +3,11 @@
   <head>
     <meta charset="utf-8">
     <title> Insertion Page</title>
+    <link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
+    <link rel="stylesheet" href="insert_form.css">
   </head>
   <body>
+    <h1>Please input details</h1>
     <form class="" action="insert2db.php" method="post">
       <table align="center" style="margin-top:100px">
         <tr>
@@ -20,7 +23,7 @@
             <td><input type="text" name="LN" placeholder="Last Name"required></td>
           </tr>
           <tr>
-            <td><input type="submit" name="submit" value="Submit"></td>
+            <td id="submit"><input type="submit" name="submit" value="Submit"></td>
           </tr>
 
       </table>

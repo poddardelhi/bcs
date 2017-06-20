@@ -47,10 +47,11 @@ if ($run==TRUE)
  <html>
 	<head>
 		<title> Show Data </title>
-
+		<link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
+		<link rel="stylesheet" href="showData.css">
 	</head>
 	<body>
-	<p> my database data </p>
+	<h1 id="heading"> My database data </h1>
 	<?php
 
 	showData();

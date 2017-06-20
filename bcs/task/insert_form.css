@@ -1,0 +1,22 @@
+body{
+  background: #e8b643;
+}
+
+td{
+  font-family: 'Slabo 27px', serif;
+  font-weight: bold;
+  padding-top: 5%;
+}
+
+h1{
+  font-family: 'Slabo 27px', serif;
+  text-decoration: underline;
+  padding-left: 40%;
+  align-items: center;
+}
+
+#submit{
+  padding-left: 40%;
+  padding-top: 10%;
+  height:10px;
+}

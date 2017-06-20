@@ -15,7 +15,7 @@ $run=mysqli_query($con,$query);
 
 if ($run==TRUE)
 
-  echo "Data insert Successfully";
+  echo "Data inserted Successfully";
 else
 echo "Error!";
  ?>

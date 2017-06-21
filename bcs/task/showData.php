@@ -1,64 +1,63 @@
 <?php
-$con=mysqli_connect ('localhost','root','password','myDB');
 
-function showData(){
-
-global $con;
-$query="SELECT * FROM `people`";
-
-$run=mysqli_query($con,$query);
-
-if ($run==TRUE)
+if(isset($_POST['search']))
 {
-	//echo"yes";
-	?>
-	<table border="1"width="80%">
-		<th>ID</th>
-		<th>First Name</th>
-		<th>Last Name</th>
-
-
-	<?php
-	while (	$data = mysqli_fetch_assoc($run)){
-		?>
-		<tr>
-			<td> <?php echo $data ['ID']; ?></td>
-			<td> <?php echo $data ['FN']; ?></td>
-			<td> <?php echo $data ['LN']; ?></td>
-
-		</tr>
-		<?php
-  // <!-- echo "<pre>";
-	// print_r($data); -->
+    $valueToSearch = $_POST['valueToSearch'];
+    // search in all table columns
+    // using concat mysql function
+    $query = "SELECT * FROM `people` WHERE CONCAT(`ID`, `FN`, 'LN') LIKE '%".$valueToSearch."%'";
+    $search_result = filterTable($query);
 
 }
- ?> </table> <?php
-}
- else
- {
-	 echo "Query not executed";
-
- }
+ else {
+    $query = "SELECT * FROM `people`";
+    $search_result = filterTable($query);
 }
 
-//showData();
- ?>
+// function to connect and execute the query
+function filterTable($query)
+{
+    $connect = mysqli_connect("localhost", "root", "password", "myDB");
+    $filter_Result = mysqli_query($connect, $query);
+    return $filter_Result;
+}
 
- <html>
-	<head>
-		<title> Show Data </title>
-		<link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
-		<link rel="stylesheet" href="showData.css">
-	</head>
-	<body>
-	<h1 id="heading"> My database data </h1>
-	<?php
+?>
 
-	showData();
+<!DOCTYPE html>
 
+<html>
 
+    <head>
+        <title>DATA DISPLAY WITH SEARCH OPERATION</title>
+        <link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
+    		<link rel="stylesheet" href="showData.css">
 
-	?>
+    </head>
+    <body>
+<h1 id="heading"> DATA DISPLAY WITH SEARCH OPERATION </h1>
+        <form action="showData.php" method="post">
+            <input type="text" name="valueToSearch" placeholder="Value To Search"><br><br>
+            <input type="submit" name="search" value="Filter"><br><br>
 
-	</body>
+            <table border="1"width="50%">
+                <tr>
+                    <th>Id</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                </tr>
+
+      <!-- populate table from mysql database -->
+                <?php while($row = mysqli_fetch_array($search_result)):?>
+                <tr>
+                    <td><?php echo $row['ID'];?></td>
+                    <td><?php echo $row['FN'];?></td>
+                    <td><?php echo $row['LN'];?></td>
+
+                </tr>
+                <?php endwhile;?>
+            </table>
+        </form>
+
+    </body>
 </html>

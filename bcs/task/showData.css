@@ -1,4 +1,4 @@
-#heading{
+#heading {
   font-family: 'Slabo 27px', serif;
   color: #040405;
   padding-left: 30%;
@@ -6,13 +6,22 @@
   text-decoration: underline;
 }
 
-body{
+body {
   background: #ddad3e;
 }
 
-td{
+td {
   height: =50px;
   width: 50px;
   text-align: center;
   vertical-align: middle;
+}
+
+table{
+  margin: auto;
+}
+
+input
+{
+  margin-left: 25%;
 }

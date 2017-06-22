@@ -23,8 +23,11 @@
             <td><input type="text" name="LN" placeholder="Last Name"required></td>
           </tr>
           <tr>
-            <td id="submit"><input type="submit" name="submit" value="Submit"></td>
+            <td id="submit"><input type="submit" name="submit" value="Submit"></td><br><br>
           </tr>
+          <td>
+            <td><input type=button onclick="location.href='showData.php'" value="Show Data"></td>
+          </td>
 
       </table>
 

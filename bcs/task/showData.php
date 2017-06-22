@@ -57,6 +57,8 @@ function filterTable($query)
                 </tr>
                 <?php endwhile;?>
             </table>
+
+            <td id="backButton"><input type=button onclick="location.href='insert_form.php'" value="Insert Data"></td>
         </form>
 
     </body>
